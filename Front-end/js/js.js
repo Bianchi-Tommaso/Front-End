@@ -7,8 +7,10 @@ $(document).ready(function ()
 
   $("body").ready(function () 
   {
-    GET(index + "?page=0&size=20");
+    GET(index + "?start=0&length=20");
   });
+
+ 
 
   function GET(link)   //prende i dati e stampa i dipendeti
   {
