@@ -18,7 +18,6 @@ var self, next, last, prev, page, json, totalPages, idModifica, editor;
             
                     label: "Id:",
                     name: "id",
-                    type: "select"
               }, {
                   label: "First name:",
                   name: "first_name"
@@ -28,6 +27,10 @@ var self, next, last, prev, page, json, totalPages, idModifica, editor;
               }, {
                   label: "Gender:",
                   name: "gender"
+              },
+              {
+                  name:"removed_date",
+                  type:"hidden"
               }
           ]
       } );
@@ -41,7 +44,7 @@ var self, next, last, prev, page, json, totalPages, idModifica, editor;
               type: 'POST'
           },
           columns: [
-              { data: "id" },
+              { data: "DT_RowId" },
               { data: "first_name" },
               { data: "last_name" },
               { data: "gender" }
@@ -70,7 +73,7 @@ var self, next, last, prev, page, json, totalPages, idModifica, editor;
                                   'Are you sure you wish to delete these '+rows.length+' rows',
                               buttons: 'Delete'
                           } )
-                          .val( 'users.removed_date', (new Date()).toISOString().split('T')[0] );
+                          .val( 'removed_date', (new Date()).toISOString().split('T')[0] );
                   }
               }
           ]
