@@ -15,36 +15,36 @@ var self, next, last, prev, page, json, totalPages, idModifica, editor;
           ajax: link,
           table: "#example",
           fields: [ {
+            
+                    label: "Id:",
+                    name: "id",
+                    type: "select"
+              }, {
                   label: "First name:",
-                  name: "users.first_name"
+                  name: "first_name"
               }, {
                   label: "Last name:",
-                  name: "users.last_name"
+                  name: "last_name"
               }, {
-                  label: "Phone #:",
-                  name: "users.phone"
-              }, {
-                  label: "Site:",
-                  name: "users.site",
-                  type: "select"
-              }, {
-                  name: "users.removed_date",
-                  type: "hidden"
+                  label: "Gender:",
+                  name: "gender"
               }
           ]
       } );
    
       var table = $('#example').DataTable( {
           dom: "Bfrtip",
+          "processing": true,
+          "serverSide": true,
           ajax: {
               url: link,
               type: 'POST'
           },
           columns: [
-              { data: "users.first_name" },
-              { data: "users.last_name" },
-              { data: "users.phone" },
-              { data: "sites.name" }
+              { data: "id" },
+              { data: "first_name" },
+              { data: "last_name" },
+              { data: "gender" }
           ],
           select: true,
           buttons: [
